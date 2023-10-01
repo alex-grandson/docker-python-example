@@ -4,16 +4,22 @@ stages:
 
 check_build:
   stage: build
+  tags:
+    - leha-vnuk
   script:
     - docker build . -t harbor.leha-vnuk.ru/library/python:3.11-${CI_COMMIT_SHA}
 
 build:
   stage: build
+  tags:
+    - leha-vnuk
   script:
     - docker build . -t harbor.leha-vnuk.ru/library/python:3.11-${CI_COMMIT_TAG}
 
 publish:
   stage: publish
+  tags:
+    - leha-vnuk
   only:
     - tags
   script:
