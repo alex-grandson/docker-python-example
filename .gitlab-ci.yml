@@ -7,14 +7,16 @@ check_build:
   tags:
     - leha-vnuk
   script:
-    - docker build . -t harbor.leha-vnuk.ru/library/python:3.11-${CI_COMMIT_SHA}
+    - docker build . -t harbor.leha-vnuk.ru/library/${CI_PROJECT_NAME}:${CI_COMMIT_SHA}
 
 build:
   stage: build
   tags:
     - leha-vnuk
+  only:
+    - tags
   script:
-    - docker build . -t harbor.leha-vnuk.ru/library/python:3.11-${CI_COMMIT_TAG}
+    - docker build . -t harbor.leha-vnuk.ru/library/${CI_PROJECT_NAME}:${CI_COMMIT_TAG}
 
 publish:
   stage: publish
@@ -22,5 +24,9 @@ publish:
     - leha-vnuk
   only:
     - tags
+  before_script:
+    - docker login -u ${REGISTRY_USER} -p ${REGISTRY_TOKEN} ${REGISTRY_URL}
   script:
-    - docker push harbor.leha-vnuk.ru/library/python:3.11-${CI_COMMIT_TAG}
+    - docker push harbor.leha-vnuk.ru/library/${CI_PROJECT_NAME}:${CI_COMMIT_TAG}
+  after_script:
+    - docker logout ${REGISTRY_URL}
