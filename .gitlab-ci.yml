@@ -1,6 +1,6 @@
 default:
   tags:
-    - leha-vnuks
+    - leha-vnuk
 
 include:
   - 'https://gitlab.leha-vnuk.ru/docker/ci/raw/master/.gitlab-ci.yml'
