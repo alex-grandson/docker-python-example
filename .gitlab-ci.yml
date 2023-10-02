@@ -1,6 +1,9 @@
+include:
+  - 'https://gitlab.leha-vnuk.ru/docker/ci/raw/master/.gitlab-ci.yml'
+
 default:
   tags:
     - leha-vnuk
 
-include:
-  - 'https://gitlab.leha-vnuk.ru/docker/ci/raw/master/.gitlab-ci.yml'
+variables:
+  REGISTRY_REPO: library
