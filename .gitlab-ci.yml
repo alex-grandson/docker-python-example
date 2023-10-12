@@ -1,5 +1,7 @@
 include:
-  - 'https://gitlab.leha-vnuk.ru/docker/ci/raw/master/.gitlab-ci.yml'
+  - project: docker/ci
+    ref: master
+    file: .gitlab-ci.yml
 
 default:
   tags:
