@@ -1,6 +1,6 @@
 include:
   - project: docker/ci
-    ref: master
+    ref: 1.0.2
     file: .gitlab-ci.yml
 
 default:
