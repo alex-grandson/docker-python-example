@@ -1,0 +1,28 @@
+name: Build and Test
+
+on: push
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r tests/requirements.txt
+
+      - name: Run pytest
+        run: |
+          pytest -v tests --junitxml report.xml
+
+      - name: Surface failing tests
+        if: always()
+        uses: pmeier/pytest-results-action@main
+        with:
+          path: report.xml
+          summary: true
+          display-options: fEX
+          fail-on-empty: true

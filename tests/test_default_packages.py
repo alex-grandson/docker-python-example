@@ -35,7 +35,7 @@ def test_python_version(host: Host):
     [
         ("nghttp2", "1.57.0"),
         ("libssl3", "3.1.4"),
-        ("libcurl", "8.4.0"),
+        ("libcurl", "8.5.0"),
         ("libcrypto3", "3.1.4"),
     ],
 )

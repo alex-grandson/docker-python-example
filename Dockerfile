@@ -21,5 +21,5 @@ RUN apk add --no-cache \
   nghttp2==1.57.0-r0 \
   nghttp2-libs==1.57.0-r0 \
   libssl3==3.1.4-r1 \
-  libcurl==8.4.0-r0 \
+  libcurl==8.5.0-r0 \
   libcrypto3==3.1.4-r1
