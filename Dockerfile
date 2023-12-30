@@ -3,7 +3,7 @@ FROM python:3.11.4-alpine3.18
 RUN apk --update --no-cache add \
   git==2.40.1-r0 \
   make==4.4.1-r1 \
-  openssh-client==9.3_p2-r0
+  openssh-client==9.3_p2-r1
 
 RUN apk add --no-cache \
   gnupg==2.4.3-r0 \
