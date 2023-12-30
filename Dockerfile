@@ -15,7 +15,8 @@ RUN apk add --no-cache \
 
 RUN pip3 install --no-cache-dir \
   virtualenv==20.24.5 \
-  pip==23.3.1
+  pip==23.3.1 \
+  pyyaml==6.0.1
 
 RUN apk add --no-cache \
   nghttp2==1.57.0-r0 \
